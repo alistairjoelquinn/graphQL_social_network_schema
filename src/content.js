@@ -1,4 +1,4 @@
-export const users = [
+export const usersData = [
     {
         id: '1',
         name: 'Alistair',
@@ -18,7 +18,7 @@ export const users = [
     }
 ];
 
-export const posts = [
+export const postsData = [
     {
         id: '1',
         title: 'what are you saying',
@@ -37,27 +37,27 @@ export const posts = [
     }
 ];
 
-export const comments = [
+export const commentsData = [
     {
-        id: 100,
+        id: "100",
         text: 'this is the most interesting thing i have read all day!',
         author: '3',
         post: '1'
     },
     {
-        id: 101,
+        id: "101",
         text: 'i am inclined to agree but do not fully understand',
         author: '1',
         post: '1'
     },
     {
-        id: 102,
+        id: "102",
         text: 'what is there to understand, its just cool!',
         author: '3',
         post: '1'
     },
     {
-        id: 103,
+        id: "103",
         text: 'the world is a terrifying place',
         author: '2',
         post: '3'
