@@ -51,7 +51,7 @@ export default {
         }
         return user;
     },
-    createPost(parent, args, { db }, info) {
+    createPost(parent, args, { db, pubsub }, info) {
         const userExists = db.users.some(user => user.id === args.data.author);
         if (!userExists) {
             throw new Error('user doesnt exist!');
@@ -61,6 +61,7 @@ export default {
             ...args.data
         }
         db.posts.push(post);
+        pubsub.publish('post', { post });
         return post;
     },
     deletePost(parent, args, { db }, info) {
