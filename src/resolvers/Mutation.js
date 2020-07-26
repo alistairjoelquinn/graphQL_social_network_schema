@@ -105,5 +105,15 @@ export default {
         }
         const deletedCommets = db.comments.splice(commentIndex, 1);
         return deletedCommets[0];
+    },
+    updateComment(parent, { id, data }, { db }, info) {
+        const comment = db.comments.find(comment => comment.id === id);
+        if (!comment) {
+            throw new Error('Comment not found...');
+        }
+        if (typeof data.text === 'string') {
+            comment.text = data.text;
+        }
+        return comment;
     }
 };
