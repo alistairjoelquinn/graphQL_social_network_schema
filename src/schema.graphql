@@ -14,6 +14,7 @@ type Mutation {
     updatePost(id: ID!, data: UpdatePostInput!): Post!
     createComment(data: CreateCommentInput!): Comment!
     deleteComment(id: ID!): Comment!
+    updateComment(id: ID!, data: updateCommentInput!): Comment!
 }
 type User {
     id: ID!
@@ -53,8 +54,7 @@ input CreatePostInput {
 }
 input UpdatePostInput {
     title: String,
-    body: String,
-    author: ID
+    body: String
 }
 input CreateCommentInput {
     text: String!,

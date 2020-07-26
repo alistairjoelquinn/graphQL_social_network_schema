@@ -72,6 +72,19 @@ export default {
         db.comments = db.comments.filter(comment => comment.post !== args.id);
         return deletedPosts[0];
     },
+    updatePost(parent, { id, data }, { db }, info) {
+        const post = db.posts.find(post => post.id === id);
+        if (!post) {
+            throw new Error('Post not found...');
+        }
+        if (typeof data.title === 'string') {
+            post.title = data.title;
+        }
+        if (typeof data.body === 'string') {
+            post.body = data.body;
+        }
+        return post;
+    },
     createComment(parent, args, { db }, info) {
         const userExists = db.users.some(user => user.id === args.data.author);
         const postExists = db.posts.some(post => post.id === args.data.post);
