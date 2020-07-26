@@ -5,7 +5,7 @@ import Query from './src/resolvers/Query';
 import Mutation from './src/resolvers/Mutation';
 import User from './src/resolvers/User';
 import Post from './src/resolvers/Post';
-import Comment from './src/resolvers/Query';
+import Comment from './src/resolvers/Comment';
 
 const server = new GraphQLServer({
     typeDefs: './src/schema.graphql',
