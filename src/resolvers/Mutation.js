@@ -128,9 +128,12 @@ export default {
             throw new Error('Comment not found...')
         }
         const [deletedComment] = db.comments.splice(commentIndex, 1);
+        console.log('deletedComment: ', deletedComment);
         pubsub.publish(`comment_${deletedComment.post}`, {
-            mutation: 'DELETED',
-            data: deletedComment
+            comment: {
+                mutation: 'DELETED',
+                data: deletedComment
+            }
         });
         return deletedComment;
     },
